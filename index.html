@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="An interactive learning and quiz platform for students." />
+  <title>Learnly — Online Quiz & Learning Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#home" aria-label="Learnly home"><span class="brand-mark">L</span><span>learnly<span class="brand-dot">.</span></span></a>
+    <div class="side-label">MENU</div>
+    <nav class="nav-list">
+      <button class="nav-link active" data-view="home"><span>⌂</span> Overview</button>
+      <button class="nav-link" data-view="learn"><span>▤</span> My learning</button>
+      <button class="nav-link" data-view="quizzes"><span>☷</span> Quizzes</button>
+      <button class="nav-link" data-view="progress"><span>◷</span> My progress</button>
+    </nav>
+    <div class="sidebar-bottom"><div class="help-card"><div class="help-icon">✦</div><strong>Keep learning!</strong><p>Small steps every day lead to big results.</p><button id="exploreBtn">Explore courses <span>→</span></button></div><div class="profile"><div class="avatar">AH</div><div><strong>Ashaaz Hussain</strong><small>Student account</small></div><span class="profile-menu">•••</span></div></div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar"><button class="mobile-menu" id="menuBtn" aria-label="Open menu">☰</button><div class="breadcrumb">Workspace <span>/</span> <strong id="pageCrumb">Overview</strong></div><div class="top-actions"><span class="date-label" id="todayLabel"></span><button class="icon-button" aria-label="Notifications">♧</button><div class="avatar small-avatar">AH</div></div></header>
+    <section class="page" id="homeView">
+      <div class="welcome-row"><div><p class="eyebrow">YOUR LEARNING SPACE</p><h1>Good morning, Ashaaz <span class="wave">✦</span></h1><p class="muted">Ready to learn something new today? Let's make it count.</p></div><div class="streak-pill">🔥 <strong>3 day streak</strong></div></div>
+      <div class="stats-grid"><article class="stat-card"><div class="stat-icon purple">▤</div><div><span>Courses enrolled</span><strong>3</strong><small>Keep exploring</small></div></article><article class="stat-card"><div class="stat-icon mint">✓</div><div><span>Quizzes completed</span><strong id="completedStat">0</strong><small>You're making progress</small></div></article><article class="stat-card"><div class="stat-icon peach">◷</div><div><span>Average score</span><strong id="averageStat">—</strong><small>Across completed quizzes</small></div></article></div>
+      <div class="section-heading"><div><p class="eyebrow">PICK UP WHERE YOU LEFT OFF</p><h2>Continue learning</h2></div><button class="text-button" data-goto="learn">View all courses <span>→</span></button></div>
+      <div class="course-grid" id="homeCourses"></div>
+      <div class="bottom-grid"><section class="panel"><div class="section-heading compact"><div><p class="eyebrow">TEST YOUR KNOWLEDGE</p><h2>Quick practice</h2></div><span class="soft-tag">5 questions</span></div><div class="quick-quiz"><div class="quiz-art">✎</div><div class="quick-copy"><strong>Ready for a quick challenge?</strong><p>Try a short quiz and see how much you've learned.</p><button class="primary-button" data-start-quiz="web-basics">Start a quiz <span>→</span></button></div></div></section><section class="panel tip-panel"><div class="tip-spark">✦</div><p class="eyebrow">A LITTLE REMINDER</p><h2>Consistency beats intensity.</h2><p class="muted">Spend 15 minutes learning something today. Your future self will thank you.</p><div class="tip-line"><span></span><span></span><span></span><span></span><span></span></div></section></div>
+    </section>
+
+    <section class="page hidden" id="learnView"><div class="page-intro"><p class="eyebrow">BUILD YOUR KNOWLEDGE</p><h1>My learning</h1><p class="muted">Explore bite-sized lessons and learn at your own pace.</p></div><div class="filter-row"><span class="soft-tag">All courses <b>3</b></span><span class="muted">Choose a topic to get started</span></div><div class="course-grid all-courses" id="allCourses"></div></section>
+
+    <section class="page hidden" id="lessonView"><button class="back-button" data-goto="learn">← Back to my learning</button><div id="lessonContent"></div></section>
+
+    <section class="page hidden" id="quizzesView"><div class="page-intro"><p class="eyebrow">PRACTICE MAKES PROGRESS</p><h1>Quizzes</h1><p class="muted">Check your understanding with a quick knowledge check.</p></div><div class="quiz-list" id="quizList"></div></section>
+
+    <section class="page hidden" id="quizView"><div id="quizContent"></div></section>
+
+    <section class="page hidden" id="resultView"><div id="resultContent"></div></section>
+
+    <section class="page hidden" id="progressView"><div class="page-intro"><p class="eyebrow">YOUR JOURNEY SO FAR</p><h1>My progress</h1><p class="muted">Every completed lesson is a step forward.</p></div><div class="stats-grid progress-stats"><article class="stat-card"><div class="stat-icon purple">✓</div><div><span>Quizzes completed</span><strong id="progressCompleted">0</strong></div></article><article class="stat-card"><div class="stat-icon mint">★</div><div><span>Best score</span><strong id="bestScore">—</strong></div></article><article class="stat-card"><div class="stat-icon peach">◎</div><div><span>Average score</span><strong id="progressAverage">—</strong></div></article></div><section class="panel history-panel"><div class="section-heading compact"><div><p class="eyebrow">YOUR ACTIVITY</p><h2>Quiz history</h2></div></div><div id="historyList" class="history-list"></div></section></section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
